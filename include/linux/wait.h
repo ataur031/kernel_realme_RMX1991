@@ -229,6 +229,60 @@ void __wake_up_sync(struct wait_queue_head *wq_head, unsigned int mode, int nr);
 
 extern void init_wait_entry(struct wait_queue_entry *wq_entry, int flags);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
  * The below macro ___wait_event() has an explicit shadow of the __ret
  * variable when used from the wait_event_*() macros.
@@ -240,6 +294,10 @@ extern void init_wait_entry(struct wait_queue_entry *wq_entry, int flags);
  * on purpose; we use long where we can return timeout values and int
  * otherwise.
  */
+
+
+
+
 
 #define ___wait_event(wq_head, condition, state, exclusive, ret, cmd)		\
 ({										\
@@ -258,8 +316,6 @@ extern void init_wait_entry(struct wait_queue_entry *wq_entry, int flags);
 			__ret = __int;						\
 			goto __out;						\
 		}								\
-										\
-		cmd;								\
 	}									\
 	finish_wait(&wq_head, &__wq_entry);					\
 __out:	__ret;									\
